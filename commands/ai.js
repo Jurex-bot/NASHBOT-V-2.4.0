@@ -24,7 +24,7 @@ module.exports = {
             }
 
             api.sendMessage(
-                `🤖 AI Response\n━━━━━━━━━━━━━━━━━━━\n${result}`,
+                `•★•🅡🅔🅧🅑🅞🅣—͟͟͞͞𖣘Response\n━━━━━━━━━━━━━━━━━━━\n${result}`,
                 event.threadID,
                 event.messageID
             );
