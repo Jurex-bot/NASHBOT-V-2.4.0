@@ -13,7 +13,7 @@ module.exports = {
             return api.sendMessage('Please enter a prompt.', event.threadID, event.messageID);
         }
 
-        api.sendMessage('Processing your request...', event.threadID, event.messageID);
+        api.sendMessage('🔍|Processing your request please wait⏱...', event.threadID, event.messageID);
 
         try {
             const response = await axios.get(`${global.NashBot.END}new/gpt-3_5-turbo?prompt=${encodeURIComponent(input)}`);
