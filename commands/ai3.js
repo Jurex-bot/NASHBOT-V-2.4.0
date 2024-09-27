@@ -7,11 +7,11 @@ async function gptConvoAPI(ask, id) {
         if (response.data && response.data.response) {
             return response.data.response;
         } else {
-            return "Unexpected API response format. Please check the API or contact support.";
+            return "Unexpected API response format. Please check the API or contact Developer Jurex .";
         }
     } catch (error) {
         console.error("Error fetching data:", error.message);
-        return "Failed to fetch data. Please try again later.";
+        return "✖Failed to fetch data.🔄 Please try again later.";
     }
 }
 
@@ -26,10 +26,10 @@ module.exports = {
         const { threadID, messageID, senderID } = event;
         const message = args.join(" ");
 
-        if (!message) return api.sendMessage("Please provide your question.\n\nExample: ai What is the solar system?", threadID, messageID);
+        if (!message) return api.sendMessage("Please provide your question Maam and Sir.\n\nExample: ai What is the solar system?", threadID, messageID);
 
         api.sendMessage(
-            "🔎 Searching for an answer. Please wait...",
+            "🔎|Searching for an answer.⏱ Please wait...",
             threadID,
             async (err, info) => {
                 if (err) return;
@@ -56,13 +56,13 @@ module.exports = {
 
                     const response = await gptConvoAPI(message, senderID);
                     api.editMessage(
-                        `𝗖𝗛𝗔𝗧𝗚𝗣𝗧\n━━━━━━━━━━━━━━━━━━\n${response}\n━━━━━━━━━━━━━━━━━━`,
+                        `LIK€•★•🅡🅔🅧🅑🅞🅣 𝗖𝗛𝗔𝗧𝗚𝗣𝗧\n━━━━━━━━━━━━━━━━━━\n${response}\n━━━━━━━━━━━━━━━━━━`,
                         info.messageID,
                         threadID,
                         messageID
                     );
                 } catch (error) {
-                    api.sendMessage("An error occurred while processing your request.", threadID, messageID);
+                    api.sendMessage("⚠️ An error occurred while processing your request.", threadID, messageID);
                 }
             },
             messageID
